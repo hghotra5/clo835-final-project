@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <p>Welcome to harry ghotra home page.</p>
+    <p id="demo">
+    </p>
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.getElementById("demo").innerHTML = JSON.stringify(myObj);
+        }
+      };
+      xmlhttp.open("GET", "http://nodejs-service:3000/items", true);
+      xmlhttp.send();
+    </script>
+</body>
+</html>
